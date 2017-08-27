@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDE60433-6B90-4E89-991B-5B0DB1D0F85A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PS.PostalBeneficiario.Aplicacao</RootNamespace>
+    <AssemblyName>PS.PostalBeneficiario.Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net451\DomainValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AplicacaoServico.cs" />
+    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="BeneficiarioAppServico.cs" />
+    <Compile Include="Interfaces\IBeneficiarioAppServico.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BeneficiarioEnderecoViewModel.cs" />
+    <Compile Include="ViewModels\BeneficiarioViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\PagedViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PS.PostalBeneficiario.Dominio\PS.PostalBeneficiario.Dominio.csproj">
+      <Project>{4a586f8e-c793-4a2c-828a-4b9a4035a780}</Project>
+      <Name>PS.PostalBeneficiario.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PS.PostalBeneficiario.Infra.CrossCutting.MvcFlte\PS.PostalBeneficiario.Infra.CrossCutting.MvcFlte.csproj">
+      <Project>{0e398b5b-0923-4e18-9ba2-38f20b421ee8}</Project>
+      <Name>PS.PostalBeneficiario.Infra.CrossCutting.MvcFlte</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PS.PostalBeneficiario.Infra.Data\PS.PostalBeneficiario.Infra.Dado.csproj">
+      <Project>{d55fcc5e-a816-4af5-a929-2a9d9ee34b88}</Project>
+      <Name>PS.PostalBeneficiario.Infra.Dado</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
